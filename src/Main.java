@@ -94,5 +94,9 @@ public class Main<A> {
         }
         return l3;
     }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 2eb5b36012fffc21e90183d4bfbc2bd977b6315a
 }
