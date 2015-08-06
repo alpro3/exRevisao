@@ -42,7 +42,4 @@ public class Main {
         System.out.println(revisao.interseccao(array, array2));
     }
 
-
-
-
 }
