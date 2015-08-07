@@ -3,7 +3,7 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-public class revisao {
+public class Revisao {
 
     /*
     a) Método que retorna quantas ocorrências de um elemento estào na lista
@@ -62,6 +62,23 @@ public class revisao {
     }
 
     /*
+    d) Alternativa
+    */
+    public static int listRepeatDois(ArrayList<Integer> l) {
+        int res = 0;
+        Set<Integer> conj = new HashSet<>();
+        Set<Integer> rep = new HashSet<>();
+        for(Integer aux : l) {
+            if (!conj.contains(aux)) {
+                conj.add(aux);
+            } else {
+                rep.add(aux);
+            }
+        }
+        return rep.size();
+    }
+
+    /*
     e) Método que retorna a união de l1 e l2
      */
     public static Set<Integer> union(ArrayList<Integer> l1, ArrayList<Integer> l2) {
@@ -84,7 +101,7 @@ public class revisao {
     /*
     Gerador de numeros
      */
-    public static Integer sorteiaNumero(){
+    public static Integer sorteiaNumero() {
         Random rn = new Random();
         return rn.nextInt(10)+1;
     }
