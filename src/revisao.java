@@ -38,12 +38,11 @@ public class revisao {
     public static int nroRepeat(ArrayList<Integer> l) {
         int count = 0;
         Set<Integer> a = new HashSet<>();
-        ArrayList<Integer> l3 = new ArrayList<Integer>();
         for (int i = 0; i < l.size(); i++) {
-            for (int j = 0; j < l.size(); j++) {
+            for (int j = i + 1; j < l.size(); j++) {
                 if (l.get(i)==(l.get(j))) {
                     count++;
-                    a.add(i);
+                    a.add(l.get(i));
                 }
             }
         }
@@ -53,52 +52,36 @@ public class revisao {
     /*
     d) Método que retorna uma lista de elementos repetidos de l
      */
-    public static ArrayList<Integer> listRepeat(ArrayList<Integer> l1) {
-        ArrayList<Integer> l3 = new ArrayList<Integer>();
+    public static Set<Integer> listRepeat(ArrayList<Integer> l1) {
+        Set<Integer> a = new HashSet<>();
         for (int i = 0; i < l1.size(); i++) {
             for (int j = i+1; j < l1.size(); j++) {
                 if (l1.get(i)==(l1.get(j))) {
-                    l3.add(l1.get(i));
+                    a.add(l1.get(i));
                 }
             }
         }
-        return l3;
+        return a;
     }
 
     /*
     e) Método que retorna a união de l1 e l2
      */
-    public static ArrayList<Integer> union(ArrayList<Integer> l1, ArrayList<Integer> l2) {
-        ArrayList<Integer> l3 = new ArrayList<Integer>();
-        for (int i = 0; i < l1.size(); i++) {
-            l3.add(l1.get(i));
-        }
-        for (int i = 0; i < l2.size(); i++) {
-            l3.add(l2.get(i));
-        }
-        for (int i = 0; i < l3.size(); i++) {
-            for (int j = i + 1; i < l3.size(); i++) {
-                if (l3.get(i)==(l3.get(j))) {
-                    l3.remove(j);
-                }
-            }
-        }
-        return l3;
+    public static Set<Integer> union(ArrayList<Integer> l1, ArrayList<Integer> l2) {
+        Set<Integer> a = new HashSet<>();
+        a.addAll(l1);
+        a.addAll(l2);
+        return a;
     }
 
     /*
     f) Método que retorna a intersecção de l1 e l2
      */
-    public static ArrayList<Integer> interseccao(ArrayList<Integer> l1, ArrayList<Integer> l2) {
-        ArrayList<Integer> l3 = new ArrayList<Integer>();
-        for (int i = 0; i < l1.size() ; i++) {
-            for (int j = 0; j < l2.size(); j++) {
-                if(l1.get(i)==(l2.get(j))){
-                    l3.add(l1.get(i));
-                }
-            }
-        }
-        return l3;
+    public static Set<Integer> interseccao(ArrayList<Integer> l1, ArrayList<Integer> l2) {
+        Set<Integer> a = new HashSet<>();
+        a.addAll(l1);
+        a.retainAll(l2);
+        return a;
     }
 
     /*
