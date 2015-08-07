@@ -3,7 +3,7 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-public class revisao {
+public class Revisao {
 
     /*
     a) Método que retorna quantas ocorrências de um elemento estào na lista
@@ -36,12 +36,10 @@ public class revisao {
     c) Método que retorna o número de elementos repetidos em l
      */
     public static int nroRepeat(ArrayList<Integer> l) {
-        int count = 0;
         Set<Integer> a = new HashSet<>();
         for (int i = 0; i < l.size(); i++) {
             for (int j = i + 1; j < l.size(); j++) {
                 if (l.get(i)==(l.get(j))) {
-                    count++;
                     a.add(l.get(i));
                 }
             }
@@ -52,16 +50,33 @@ public class revisao {
     /*
     d) Método que retorna uma lista de elementos repetidos de l
      */
-    public static Set<Integer> listRepeat(ArrayList<Integer> l1) {
+    public static Set<Integer> listRepeat(ArrayList<Integer> l) {
         Set<Integer> a = new HashSet<>();
-        for (int i = 0; i < l1.size(); i++) {
-            for (int j = i+1; j < l1.size(); j++) {
-                if (l1.get(i)==(l1.get(j))) {
-                    a.add(l1.get(i));
+        for (int i = 0; i < l.size(); i++) {
+            for (int j = i+1; j < l.size(); j++) {
+                if (l.get(i)==(l.get(j))) {
+                    a.add(l.get(i));
                 }
             }
         }
         return a;
+    }
+
+    /*
+    d) Alternativa
+    */
+    public static int listRepeatDois(ArrayList<Integer> l) {
+        int res = 0;
+        Set<Integer> conj = new HashSet<>();
+        Set<Integer> rep = new HashSet<>();
+        for(Integer aux : l) {
+            if (!conj.contains(aux)) {
+                conj.add(aux);
+            } else {
+                rep.add(aux);
+            }
+        }
+        return rep.size();
     }
 
     /*
@@ -87,7 +102,7 @@ public class revisao {
     /*
     Gerador de numeros
      */
-    public static Integer sorteiaNumero(){
+    public static Integer sorteiaNumero() {
         Random rn = new Random();
         return rn.nextInt(10)+1;
     }
