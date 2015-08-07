@@ -36,12 +36,10 @@ public class revisao {
     c) Método que retorna o número de elementos repetidos em l
      */
     public static int nroRepeat(ArrayList<Integer> l) {
-        int count = 0;
         Set<Integer> a = new HashSet<>();
         for (int i = 0; i < l.size(); i++) {
             for (int j = i + 1; j < l.size(); j++) {
                 if (l.get(i)==(l.get(j))) {
-                    count++;
                     a.add(l.get(i));
                 }
             }
@@ -53,15 +51,14 @@ public class revisao {
     d) Método que retorna uma lista de elementos repetidos de l
      */
     public static Set<Integer> listRepeat(ArrayList<Integer> l1) {
-        Set<Integer> a = new HashSet<>();
-        for (int i = 0; i < l1.size(); i++) {
-            for (int j = i+1; j < l1.size(); j++) {
-                if (l1.get(i)==(l1.get(j))) {
-                    a.add(l1.get(i));
-                }
+        Set<Integer> unicos = new HashSet<>();
+        Set<Integer> duplicados = new HashSet<>();
+        for(Integer a : l1){
+            if(!unicos.add(a)){
+                duplicados.add(a);
             }
         }
-        return a;
+        return duplicados;
     }
 
     /*
