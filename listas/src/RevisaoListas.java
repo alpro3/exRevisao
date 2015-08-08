@@ -3,7 +3,7 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-public class Revisao {
+public class RevisaoListas {
 
     /*
     a) Método que retorna quantas ocorrências de um elemento estào na lista
